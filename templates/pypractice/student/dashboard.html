@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block content %}
+<h2>Python 練習系統</h2>
+<p>歡迎，{{ user.username }}！</p>
+<a href="{% url 'pypractice:quiz_list' %}" class="btn btn-primary">測驗</a>
+<a href="{% url 'pypractice:forum_list' %}" class="btn btn-secondary">討論區</a>
+
+<h3 class="mt-4">學習路徑</h3>
+{% for path in paths %}
+<div class="card mb-3">
+  <div class="card-body">
+    <h5>{{ path.title }}</h5>
+    <p>{{ path.description|truncatewords:15 }}</p>
+    <p>
+      <strong>進度：</strong> {{ progress[path.id].0 }} / {{ progress[path.id].1
+      }}
+    </p>
+  </div>
+</div>
+{% empty %}
+<p>目前沒有學習路徑。</p>
+{% endfor %} {% endblock %}

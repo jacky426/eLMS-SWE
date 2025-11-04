@@ -36,4 +36,5 @@ urlpatterns = [
     path('', include('attendance.urls')),
     path('', include('quiz.urls')),
     path('froala_editor/', include('froala_editor.urls')),
+    path('practice/', include('pypractice.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
